@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="popup.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Pro Screen Share</h1>
+
+    <!-- HOME SCREEN -->
+    <div id="view-home" class="view active">
+        <button id="btn-go-host" class="btn">
+            <span>📡</span> Host Screen
+        </button>
+        <button id="btn-go-viewer" class="btn secondary">
+            <span>📺</span> Receive Screen
+        </button>
+    </div>
+
+    <!-- HOST SCREEN -->
+    <div id="view-host" class="view">
+        <button id="back-from-host" class="back-btn">← Back</button>
+        <h2 style="font-size: 16px; margin: 10px 0; color: #BB86FC;">Host a Session</h2>
+
+        <label for="host-room-id" style="display: block; text-align: left; font-size: 12px; color: #aaa;">Create Room
+            ID:</label>
+        <input type="text" id="host-room-id" placeholder="Ex: MEETING1" maxlength="10">
+
+        <div class="checkbox-wrapper">
+            <label>
+                <input type="checkbox" id="audio-toggle" checked> Share System Audio
+            </label>
+        </div>
+
+        <button id="start-hosting-btn" class="btn">Start Hosting</button>
+        <button id="stop-hosting-btn" class="btn stop" style="display: none;">Stop Hosting</button>
+
+        <div id="host-status" class="status">Click Start to share</div>
+    </div>
+
+    <!-- VIEWER SCREEN -->
+    <div id="view-viewer" class="view">
+        <button id="back-from-viewer" class="back-btn">← Back</button>
+        <h2 style="font-size: 16px; margin: 10px 0; color: #03DAC6;">Join a Session</h2>
+
+        <label for="viewer-room-id" style="display: block; text-align: left; font-size: 12px; color: #aaa;">Enter Room
+            ID:</label>
+        <input type="text" id="viewer-room-id" placeholder="Ex: MEETING1" maxlength="10">
+
+        <button id="start-viewing-btn" class="btn">Start Receiving</button>
+        <div id="viewer-status" class="status"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

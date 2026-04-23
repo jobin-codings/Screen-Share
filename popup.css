@@ -1,0 +1,157 @@
+/* extension/popup.css */
+body {
+    width: 320px;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    margin: 0;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    text-align: center;
+    color: #BB86FC;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.view {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.view.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: #3700b3;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background: #6200ea;
+}
+
+.btn.secondary {
+    background: #333;
+    border: 1px solid #444;
+}
+
+.btn.secondary:hover {
+    background: #444;
+}
+
+.btn.stop {
+    background: #cf6679;
+    color: #000;
+}
+
+.btn.stop:hover {
+    background: #b00020;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    background: #2c2c2c;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #BB86FC;
+}
+
+.checkbox-wrapper {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #ccc;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+#status {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #aaa;
+    text-align: center;
+    min-height: 20px;
+}
+
+.room-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: #252525;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.code {
+    font-family: 'Consolas', monospace;
+    font-size: 24px;
+    color: #03DAC6;
+    letter-spacing: 3px;
+    display: block;
+    margin: 10px 0;
+    user-select: all;
+    background: #111;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.back-btn:hover {
+    color: #fff;
+}

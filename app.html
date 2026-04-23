@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Screen Share</title>
+    <link rel="stylesheet" href="app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="connection-status" title="Connection Status"></div>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo-pill">
+                <img src="icons/icon_new.svg" alt="Icon">
+                <span>Pro Screen Share</span>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT AREA -->
+        <main>
+
+            <!-- HOME VIEW -->
+            <section id="view-home" class="view active center-view">
+                <h1 class="hero-title">Share Your Screen<br><span class="highlight-text">Instantly</span></h1>
+                <p class="hero-subtitle">Fast, simple, and secure screen sharing directly in your browser. No downloads
+                    required.</p>
+
+                <div class="action-cards">
+                    <div class="card action-card" id="card-host">
+                        <div class="icon-circle blue-bg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4 16V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V16M12 12V4M12 4L8 8M12 4L16 8"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Send Screen</h3>
+                        <!-- Clickable container -->
+                    </div>
+
+                    <div class="card action-card" id="card-viewer">
+                        <div class="icon-circle gray-bg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4 6V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V6M12 11V15M8 6H16"
+                                    stroke="#4B5563" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <rect x="2" y="3" width="20" height="14" rx="2" stroke="#4B5563" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Receive Screen</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOST VIEW -->
+            <section id="view-host" class="view center-view">
+                <div class="nav-header">
+                    <button class="btn-back" id="back-from-host">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#1F2937" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="logo-pill small">
+                        <img src="icons/icon_new.svg" alt="Icon">
+                        <span>Send Screen</span>
+                    </div>
+                </div>
+
+                <div class="card content-card">
+                    <div class="icon-box blue">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 16V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V16M12 12V4M12 4L8 8M12 4L16 8"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+
+                    <h2>Ready to Share</h2>
+                    <p class="description" id="host-description">Click the button below to start sharing your screen.
+                    </p>
+
+                    <!-- Hidden Configuration for Clean UI -->
+                    <div class="options-container">
+                        <div class="input-group checkbox-wrapper">
+                            <input type="checkbox" id="audio-toggle" checked>
+                            <label for="audio-toggle">Share System Audio</label>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Configuration for Clean UI -->
+                    <div class="advanced-options" style="display:none;">
+                        <!-- Room ID is auto-generated usually, keep hidden or show if needed -->
+                        <input type="text" id="host-room-id" placeholder="Custom Room ID">
+                    </div>
+
+                    <button class="btn primary-large" id="btn-start-hosting">Start Sharing</button>
+
+                    <div id="host-output" class="output-area" style="display:none;">
+                        <div class="loader" id="host-loader"></div>
+                        <div class="status-message" id="host-status-text">Initializing...</div>
+                        <div class="code-display" id="host-room-display" style="display: none;">
+                            <span class="code-label">Your Share Code:</span>
+                            <span class="code-value" id="host-room-code">---</span>
+                        </div>
+                        <button class="btn danger" id="btn-stop-hosting" style="display:none;">Stop Sharing</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEWER VIEW -->
+            <section id="view-viewer" class="view center-view">
+                <div class="nav-header">
+                    <button class="btn-back" id="back-from-viewer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#1F2937" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="logo-pill small">
+                        <img src="icons/icon_new.svg" alt="Icon">
+                        <span>Receive Screen</span>
+                    </div>
+                </div>
+
+                <div class="card content-card" id="viewer-setup">
+                    <div class="icon-box gray">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 6V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V6M12 11V15M8 6H16"
+                                stroke="#4B5563" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <rect x="2" y="3" width="20" height="14" rx="2" stroke="#4B5563" stroke-width="2" />
+                        </svg>
+                    </div>
+
+                    <h2>View Shared Screen</h2>
+                    <p class="description">Enter the share code provided by the sender to start viewing their screen.
+                    </p>
+
+                    <div class="input-wrapper">
+                        <input type="text" id="viewer-room-id" placeholder="Enter share code" maxlength="15">
+                    </div>
+
+                    <button class="btn primary-large" id="btn-start-viewing">Connect</button>
+                    <p id="viewer-error" class="error-text"></p>
+                </div>
+
+                <div id="video-area" style="display: none;">
+                    <video id="remote-video" autoplay playsinline controls></video>
+                    <div class="overlay-controls">
+                        <button class="btn sm" id="btn-viewer-disconnect">Disconnect</button>
+                        <button class="btn sm" id="btn-fullscreen">Fullscreen</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,539 @@
+/* app.css - Light Theme Remake */
+
+:root {
+    --primary-color: #2563EB;
+    /* Vibrant Blue */
+    --primary-hover: #1D4ED8;
+    /* Darker Blue */
+    --bg-color: #F3F4F6;
+    /* Light Gray */
+    --card-bg: #FFFFFF;
+    /* White */
+    --text-main: #1F2937;
+    /* Dark Gray */
+    --text-muted: #6B7280;
+    /* Medium Gray */
+    --border-color: #E5E7EB;
+    /* Light Border */
+    --danger-color: #EF4444;
+    /* Red */
+    --success-color: #10B981;
+    /* Green */
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* --- HEADER --- */
+.app-header {
+    display: flex;
+    justify-content: flex-start;
+    /* Left align as per screenshot */
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 40px;
+}
+
+.logo-pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+}
+
+.logo-pill img {
+    height: 32px;
+    width: 32px;
+}
+
+.logo-pill span {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text-main);
+}
+
+.logo-pill.small img {
+    height: 24px;
+    width: 24px;
+}
+
+.logo-pill.small span {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+/* --- VIEWS UTILS --- */
+.view {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.view.active {
+    display: flex;
+}
+
+.center-view {
+    justify-content: center;
+    flex-grow: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- HOME VIEW (HERO) --- */
+.hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    color: var(--text-main);
+}
+
+.highlight-text {
+    color: var(--primary-color);
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 400px;
+    margin: 0 0 48px 0;
+    line-height: 1.5;
+}
+
+/* --- ACTION CARDS --- */
+.action-cards {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.action-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.action-card h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.icon-circle.blue-bg {
+    background-color: var(--primary-color);
+}
+
+.icon-circle.gray-bg {
+    background-color: #F3F4F6;
+}
+
+/* --- DETAIL VIEWS --- */
+.nav-header {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+    /* Adjust for absolute positioning of back button if needed, but flex is safer */
+    gap: 20px;
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-back:hover {
+    background-color: #E5E7EB;
+}
+
+.content-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.icon-box.blue {
+    background-color: var(--primary-color);
+}
+
+.icon-box.gray {
+    background-color: #F3F4F6;
+}
+
+.content-card h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.description {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+}
+
+/* --- BUTTONS & INPUTS --- */
+.btn {
+    font-family: inherit;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn.primary-large {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn.primary-large:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn.sm {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(4px);
+}
+
+.btn.sm:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.input-wrapper {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    text-align: center;
+    background: #F9FAFB;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* --- OUTPUT AREA (Host) --- */
+.output-area {
+    margin-top: 24px;
+    width: 100%;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-message {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.code-display {
+    background: #F3F4F6;
+    padding: 12px 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px dashed var(--border-color);
+}
+
+.code-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.code-value {
+    font-family: monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.btn.danger {
+    background-color: #FEF2F2;
+    color: var(--danger-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #FECACA;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.btn.danger:hover {
+    background-color: #FEE2E2;
+}
+
+
+/* --- VIDEO AREA --- */
+#video-area {
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+video {
+    max-width: 100%;
+    max-height: 100%;
+    outline: none;
+}
+
+.overlay-controls {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#video-area:hover .overlay-controls {
+    opacity: 1;
+}
+
+.error-text {
+    color: var(--danger-color);
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+/* --- FULL WINDOW MODE (Receiver) --- */
+body.full-window-mode {
+    background: black;
+    overflow: hidden;
+}
+
+body.full-window-mode .app-container {
+    padding: 0;
+    max-width: none;
+    height: 100vh;
+}
+
+body.full-window-mode .app-header,
+body.full-window-mode .nav-header,
+body.full-window-mode #viewer-setup {
+    display: none !important;
+}
+
+body.full-window-mode #view-viewer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* force flex */
+}
+
+body.full-window-mode #video-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: 1000;
+}
+
+/* Loader Animation */
+.loader {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #E5E7EB;
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Connection Status Indicator (Hidden but present for JS if we add it back) */
+#connection-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #E5E7EB;
+    /* Default */
+    transition: background-color 0.3s;
+}
+
+#connection-status.success {
+    background-color: var(--success-color);
+    box-shadow: 0 0 5px var(--success-color);
+}
+
+#connection-status.warning {
+    background-color: #F59E0B;
+}
+
+#connection-status.error {
+    background-color: var(--danger-color);
+}
+
+/* Options Container */
+.options-container {
+    width: 100%;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background: #F9FAFB;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.checkbox-wrapper:hover {
+    border-color: var(--primary-color);
+    background: #F0F9FF;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-wrapper label {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-main);
+    user-select: none;
+}
