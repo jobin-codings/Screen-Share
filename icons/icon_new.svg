@@ -1,1 +1,12 @@
-
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Blue Background -->
+    <rect width="48" height="48" rx="12" fill="#2563EB"/>
+    
+    <!-- Monitor Bezel -->
+    <rect x="8" y="11" width="32" height="22" rx="2" stroke="white" stroke-width="3"/>
+    <!-- Monitor Stand -->
+    <path d="M16 38H32M24 33V38" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Upward Arrow inside/overlaying -->
+    <path d="M24 28V16M24 16L19 21M24 16L29 21" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
