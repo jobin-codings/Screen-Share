@@ -1,2 +1,2 @@
 # Screen-Share
-Screen sharing chrome extension for wireless screen share.
+Its a screen sharing webapplication for wireless screen share.
